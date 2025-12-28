@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ahadi Barbearia e Tabacaria</title>
+
+    <link rel="stylesheet" href="css/style.css"> 
+    
+    <link rel="icon" type="image/jpeg" href="assets/icone.jpg" /> 
+
+</head>
+<body>
+
+<div class="bg-home"></div>
+<img src="images/Barbeiro.jpg" class="barbeiro-nevoa" alt="Barbeiro Ahadi" />
+
+<div class="login-create-row">
+    <a href="#" class="btn-vip-header" onclick="redirectToCartWithVip(); return false;">Seja um membro VIP!</a>
+
+    <div class="action-icon" onclick="openCartModal()">
+        &#128722;
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+
+    
+
+    <div class="action-icon user-status" id="user-status" style="display: none;">
+        <span style="font-size: 0.8em; margin-right: 5px;">Olá, <b id="logged-in-user-name">Usuário</b></span>
+        <button onclick="logout()" style="background: none; border: none; color: #ff0000; cursor: pointer; font-size: 0.7em;">(Sair)</button>
+    </div>
+
+    <div class="action-icon" id="login-icon" onclick="openLoginPanel()">
+        &#128100;
+    </div>
+    
+    <button class="create-account-btn" id="create-account-btn" onclick="openCreateAccount()">Criar Conta</button>
+</div>
+
+<div class="login-panel">
+    <h3 style="text-align:center;color:#e6b300;">Login</h3>
+    <input id="loginUser" type="text" placeholder="Usuário">
+    <input id="loginPass" type="password" placeholder="Senha">
+    
+    <button class="btn-login" onclick="login()">Entrar</button>
+    
+    <button class="btn-google" onclick="loginGoogle()">
+    <span>Entrar com 
+        <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+    </span>
+</button>
+
+    <a href="#" style="color:#e6b300;font-size:12px;">Recuperar senha</a>
+</div>
+
+<nav class="navbar">
+    <a onclick="showSection('home-section')">Início</a>
+    <a onclick="showSection('barbearia-section')">Serviços</a>
+    <a onclick="showSection('produtos-section')">Produtos</a>
+    <a onclick="showSection('vip-section')">VIP</a>
+</nav>
+
+<div class="page-content">
+
+<section id="vip-section" class="section-card">
+    <h2 style="font-size: 2.5em; margin-bottom: 20px;">👑 Programa de Membros VIP Ahadi</h2>
+    <p style="text-align: center; color: #ccc; font-size: 1.1em; max-width: 700px; margin: 0 auto 30px;">Faça parte do nosso círculo exclusivo e desfrute de vantagens inigualáveis em todos os nossos serviços e produtos de tabacaria.</p>
+
+    <h3>Vantagens Exclusivas:</h3>
+    
+    <div class="vantagens">
+        <div class="vantagem-card">
+            <strong>Cortes e Barbas com 15% OFF</strong>
+            <p>Desconto fixo em todos os serviços de barbearia, válido em qualquer dia e horário.</p>
+        </div>
+        <div class="vantagem-card">
+            <strong>10% em Toda Tabacaria</strong>
+            <p>Economize em sedas, piteiras, charutos e acessórios. Seu estoque sempre completo com preço de membro.</p>
+        </div>
+        <div class="vantagem-card">
+            <strong>Agendamento Prioritário</strong>
+            <p>Acesso a horários exclusivos e preferência na fila de espera em dias de maior movimento.</p>
+        </div>
+        <div class="vantagem-card">
+            <strong>Produto Bônus Mensal</strong>
+            <p>Receba um produto surpresa de cortesia na sua primeira visita do mês (Ex: Piteira de Vidro ou Seda Premium).</p>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <h3 style="margin-top:0;">Preço do Membership: R$ 49,90 / mês</h3>
+    <a onclick="openModalVIP()" 
+   style="display: inline-block; 
+          background: #e6b300; 
+          color: #000; 
+          padding: 15px 30px; 
+          border-radius: 12px; 
+          font-weight: bold; 
+          font-size: 1.2em; 
+          text-decoration: none; 
+          cursor: pointer; 
+          border: none; 
+          transition: transform 0.2s, background 0.2s;
+          box-shadow: 0 4px 15px rgba(230, 179, 0, 0.3);
+          font-family: Arial, sans-serif;">
+    QUERO ME TORNAR VIP AGORA
+</a>
+    </div>
+</section>
+
+<section id="barbearia-section" class="section-card">
+    <h2>Serviços de Barbearia</h2>
+
+    <div style="margin-top:15px;text-align:center;">
+        <div style="margin-bottom:20px; font-size:18px; line-height:28px;">
+            <p><b>Corte:</b> R$ 50</p>
+            <p><b>Barba:</b> R$ 40</p>
+            <p><b>Sobrancelha:</b> R$ 20</p>
+            <p><b>Pesinho:</b> R$ 20</p>
+        </div>
+
+        <h3 style="color:#e6b300; margin-top:20px;">Agende Seu Horário</h3>
+
+        <div style="margin:15px 0; text-align:center;">
+            <label style="color:#e6b300;">Já escolheu a forma de pagamento?</label>
+            <div style="font-size:13px;color:#ccc;margin-top:6px;">(no próximo passo você confirma PIX ou Presencial)</div>
+        </div>
+
+        <div class="horarios-wrapper" role="table" aria-label="Horários de atendimento">
+            
+            <div class="col-horarios">
+                <h4>Manhã</h4>
+                <div class="lista" id="lista-manha" aria-live="polite">
+                    <div style="display:flex; justify-content:space-between; width:100%; max-width: 320px; align-items:center;">
+                        <button class="horario-btn" data-time="09:00">09:00</button>
+                        <button class="btn-primary btn-agendar-pequeno" 
+                                onclick="openModalPagamento('09:00')">
+                            Agendar
+                        </button>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; width:100%; max-width: 320px; align-items:center;">
+                        <button class="horario-btn" data-time="10:00">10:00</button>
+                        <button class="btn-primary btn-agendar-pequeno" 
+                                onclick="openModalPagamento('10:00')">
+                            Agendar
+                        </button>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; width:100%; max-width: 320px; align-items:center;">
+                        <button class="horario-btn" data-time="11:00">11:00</button>
+                        <button class="btn-primary btn-agendar-pequeno" 
+                                onclick="openModalPagamento('11:00')">
+                            Agendar
+                        </button>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; width:100%; max-width: 320px; align-items:center;">
+                        <button class="horario-btn" data-time="12:00">12:00</button>
+                        <button class="btn-primary btn-agendar-pequeno" 
+                                onclick="openModalPagamento('12:00')">
+                            Agendar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-horarios">
+                <h4>Tarde</h4>
+                <div class="lista" id="lista-tarde" aria-live="polite">
+                    <div style="display:flex; justify-content:space-between; width:100%; max-width: 320px; align-items:center;">
+                        <button class="horario-btn" data-time="13:00">13:00</button>
+                        <button class="btn-primary btn-agendar-pequeno" 
+                                onclick="openModalPagamento('13:00')">
+                            Agendar
+                        </button>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; width:100%; max-width: 320px; align-items:center;">
+                        <button class="horario-btn" data-time="14:00">14:00</button>
+                        <button class="btn-primary btn-agendar-pequeno" 
+                                onclick="openModalPagamento('14:00')">
+                            Agendar
+                        </button>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; width:100%; max-width: 320px; align-items:center;">
+                        <button class="horario-btn" data-time="15:00">15:00</button>
+                        <button class="btn-primary btn-agendar-pequeno" 
+                                onclick="openModalPagamento('15:00')">
+                            Agendar
+                        </button>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; width:100%; max-width: 320px; align-items:center;">
+                        <button class="horario-btn" data-time="16:00">16:00</button>
+                        <button class="btn-primary btn-agendar-pequeno" 
+                                onclick="openModalPagamento('16:00')">
+                            Agendar
+                        </button>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; width:100%; max-width: 320px; align-items:center;">
+                        <button class="horario-btn" data-time="17:00">17:00</button>
+                        <button class="btn-primary btn-agendar-pequeno" 
+                                onclick="openModalPagamento('17:00')">
+                            Agendar
+                        </button>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; width:100%; max-width: 320px; align-items:center;">
+                        <button class="horario-btn" data-time="18:00">18:00</button>
+                        <button class="btn-primary btn-agendar-pequeno" 
+                                onclick="openModalPagamento('18:00')">
+                            Agendar
+                        </button>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; width:100%; max-width: 320px; align-items:center;">
+                        <button class="horario-btn" data-time="19:00">19:00</button>
+                        <button class="btn-primary btn-agendar-pequeno" 
+                                onclick="openModalPagamento('19:00')">
+                            Agendar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="produtos-section" class="section-card" style="display:none;">
+    <h2>Produtos de Tabacaria (219 Itens)</h2>
+
+    <div class="controle-produtos" style="background:#000; padding:15px; border-radius:8px; margin-bottom:20px; display:flex; align-items:center;">
+        <label>Mostrar:</label>
+        <select id="displayCount" onchange="renderProducts()" style="margin-left:10px;">
+            <option value="20">20</option>
+            <option value="40">40</option>
+            <option value="50" selected>50</option>
+            <option value="100">100</option>
+            <option value="219">Todos (219)</option>
+        </select>
+    </div>
+
+    <div class="categorias" style="margin-top:12px; margin-bottom: 20px;">
+        <button onclick="filterProducts('todas')">Todas</button>
+        <button onclick="filterProducts('piteiras')">Piteiras</button>
+        <button onclick="filterProducts('sedas')">Sedas</button>
+        <button onclick="filterProducts('tabacos')">Tabacos</button>
+        <button onclick="filterProducts('charutos')">Charutos</button>
+        <button onclick="filterProducts('incensos')">Incensos</button>
+        <button onclick="filterProducts('clippers')">Clippers</button>
+        <button onclick="filterProducts('macaricos')">Maçaricos</button>
+        <button onclick="filterProducts('cuias')">Cuias</button>
+        <button onclick="filterProducts('bandejas')">Bandejas</button>
+        <button onclick="filterProducts('cases')">Cases</button>
+        <button onclick="filterProducts('slicks')">Slicks</button>
+        <button onclick="filterProducts('acessorios')">Acessórios</button>
+    </div>
+
+    <!-- GRID ÚNICO (ID DUPLICADO REMOVIDO) -->
+    <div id="produtos-grid" class="produtos-grid"></div>
+</section>
+
+</div>
+
+<div id="modalCreateAccount" class="modal-overlay" style="display:none;">
+    <div class="modal">
+        <h3>Criar Conta</h3>
+        <input id="newName" placeholder="Nome completo">
+        <input id="newEmail" placeholder="Email">
+        <input id="newUser" placeholder="Usuário">
+        <input id="newPass" type="password" placeholder="Senha">
+        <button style="margin-top:10px;background:#e6b300;color:#000;border:none;padding:10px;border-radius:6px;font-weight:bold;width:100%;" onclick="createAccount()">Criar Conta</button>
+        <div style="text-align:center;margin-top:8px;"><button onclick="closeCreateAccount()" style="background:#444;color:#fff;border:none;padding:6px 10px;border-radius:6px;">Cancelar</button></div>
+    </div>
+    </div>
+
+    <div id="modalPagamento" class="modal-overlay" onclick="closeModalPagamento()" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; z-index: 10000;">
+    <div class="modal" onclick="event.stopPropagation()" style="max-width: 380px; width: 95%; background: #111; padding: 20px; border-radius: 12px; border: 1px solid #333;">
+        <h3 style="color: #e6b300; text-align: center; margin: 0;">Confirmar Agendamento</h3>
+        <div style="color:#ccc; margin-top:6px; text-align: center; margin-bottom: 15px;">Horário: <b id="modalHora">--:--</b></div>
+
+        <div style="text-align: center; background: rgba(0,0,0,0.5); border: 2px solid #e6b300; padding: 20px; border-radius: 12px;"> 
+            <p style="color: #e6b300; font-weight: bold; margin-bottom: 10px;">Pagar com PIX</p>
+            <div style="width: 200px; height: 200px; margin: 0 auto; overflow: hidden; border-radius: 10px; background: #fff;">
+                <img src="images/QRcode.png" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            
+            <div style="display: flex; gap: 5px; margin-top: 15px;">
+                <textarea id="pixCodeAgendar" readonly style="flex: 1; height: 40px; resize: none; padding: 8px; border: 1px dashed #e6b300; background: #000; color: #fff; font-size: 10px;">076f9685-d61e-4ad6-95d7-9e1566404628</textarea>
+                <button onclick="copyPix('pixCodeAgendar')" style="background:#e6b300; color:#000; border:none; padding: 0 10px; border-radius: 4px; font-weight: bold; cursor: pointer;">Copiar</button>
+            </div>
+
+            <a href="https://wa.me/5579998422845" target="_blank" style="display: block; background: #25D366; color: #fff; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 15px;">WhatsApp: Enviar Comprovante</a>
+
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button onclick="confirmarAgendamento()" style="flex: 1; background: #e6b300; color: #000; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer;">Confirmar</button>
+                <button onclick="closeModalPagamento()" style="flex: 1; background: #333; color: #fff; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer;">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalCart" class="modal-overlay" onclick="closeCart()" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; z-index: 9999;">
+    <div class="modal" onclick="event.stopPropagation()" style="max-width: 420px; width: 95%; background: #111; padding: 20px; border-radius: 15px; border: 1px solid #333; max-height: 90vh; overflow-y: auto;">
+        
+        <h2 style="color: #e6b300; text-align: center; margin-bottom: 15px;">Meu Carrinho</h2>
+        
+        <div id="cartItems" style="
+        margin-bottom: 15px;
+        max-height: 260px;
+        overflow-y: auto;
+        "></div>
+
+
+        <div id="cartTotal" style="color: #fff; font-weight: bold; margin-bottom: 20px; text-align: right; font-size: 1.2em; border-top: 1px solid #333; padding-top: 10px;">
+            Total: R$ 0,00
+        </div>
+
+        <div id="pixAreaCart" style="background: rgba(255,255,255,0.05); border: 2px solid #e6b300; padding: 15px; border-radius: 12px; text-align: center;">
+            <p style="color: #e6b300; font-weight: bold; margin-bottom: 10px;">Pague via PIX</p>
+            
+            <div style="width: 180px; height: 180px; margin: 0 auto; border-radius: 10px; background: #fff; overflow: hidden; border: 2px solid #333;">
+                <img src="images/QRcode.png" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+
+            <label style="color: #ccc; font-size: 0.8em; display: block; margin-top: 15px; text-align: left;">Pix Copia e Cola:</label>
+            <div style="display: flex; gap: 5px; margin-top: 5px;">
+                <textarea id="pixCodeCart" readonly style="flex: 1; height: 40px; resize: none; padding: 8px; border: 1px dashed #e6b300; background: #000; color: #fff; border-radius: 4px; font-size: 10px;">076f9685-d61e-4ad6-95d7-9e1566404628</textarea>
+                <button onclick="copyPix('pixCodeCart')" style="background:#e6b300; color:#000; border:none; padding: 0 10px; border-radius: 4px; font-weight: bold; cursor: pointer;">Copiar</button>
+            </div>
+
+            <a id="whatsappLinkCart" href="https://wa.me/5579998422845" target="_blank" style="display: block; background: #25D366; color: #fff; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 15px; font-size: 0.9em;">
+                WhatsApp: Enviar Comprovante
+            </a>
+        </div>
+
+        <button onclick="closeCart()" style="width: 100%; background: #333; color: #fff; border: none; padding: 10px; border-radius: 8px; margin-top: 15px; cursor: pointer;">Continuar Comprando</button>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+
+<script>
+    // --- FUNÇÃO JAVASCRIPT PARA COPIAR O PIX DO CARRINHO ---
+    // Você pode mover esta função para o seu arquivo 'js/script.js'
+    function copyPixCodeCart() {
+        var copyText = document.getElementById("pixCodeCart");
+        
+        // Seleciona o texto no campo
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // Para dispositivos móveis
+        
+        // Copia o texto
+        navigator.clipboard.writeText(copyText.value)
+            .then(() => {
+                alert("Código Pix Copiado para a área de transferência!");
+            })
+            .catch(err => {
+                console.error('Erro ao copiar: ', err);
+                alert('Erro ao copiar o código. Tente selecionar e copiar manualmente.');
+            });
+    }
+</script>
+<div id="modalVIP" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; z-index: 10001;" onclick="closeModalVIP()">
+    <div style="max-width: 380px; width: 95%; background: #111; padding: 25px; border-radius: 20px; border: 2px solid #e6b300; text-align: center;" onclick="event.stopPropagation()">
+        <h3 style="color: #e6b300; margin: 0;">Ativação Membro VIP</h3>
+        <p style="color: #ccc; margin-bottom: 20px;">Valor: <b>R$ 49,90</b></p>
+        
+        <div style="width: 210px; height: 210px; margin: 0 auto; border-radius: 15px; border: 2px solid #333; background: #fff; overflow: hidden;">
+            <img src="images/QRcode.png" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+
+        <div style="display: flex; gap: 5px; margin-top: 20px;">
+            <textarea id="pixCodeVIP" readonly style="flex: 1; height: 40px; padding: 8px; background: #000; color: #fff; border: 1px dashed #e6b300; border-radius: 4px; font-size: 10px; resize: none;">076f9685-d61e-4ad6-95d7-9e1566404628</textarea>
+            <button onclick="copyPix('pixCodeVIP')" style="background:#e6b300; color:#000; border:none; padding: 0 10px; border-radius: 4px; font-weight: bold; cursor: pointer;">Copiar</button>
+        </div>
+
+        <a href="https://wa.me/5579998422845?text=Olá, paguei o VIP (R$ 49,90). Segue comprovante." target="_blank" style="display: block; background: #25D366; color: #fff; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 15px;">Enviar Comprovante VIP</a>
+    </div>
+</div>
+
+</body>
+</html>
