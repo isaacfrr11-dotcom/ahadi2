@@ -114,7 +114,7 @@ function login() {
 
     const loginData = { usuarioOuEmail, senha };
 
-   fetch('http://localhost:3000/api/login', {
+   fetch('http://ahadi-backend.onrender.com/api/login', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -164,7 +164,7 @@ function createAccount() {
 
     const userData = { nome, email, usuario, senha };
 
-    fetch('http://localhost:3000/api/criar-conta', {
+    fetch('ahadi-backend.onrender.com/api/criar-conta', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -568,11 +568,11 @@ const produtos = [
     { id: 137, title: "Maçarico Fire", price: "R$ 30,00", category: "macaricos", imageName: "137.jpg" },
     { id: 138, title: "Maçarico Zengaz", price: "R$ 30,00", category: "macaricos", imageName: "138.jpg" },
     { id: 139, title: "Maçarico Sadhu", price: "R$ 50,00", category: "macaricos", imageName: "139.jpg" },
-    { id: 140, title: "Maçarico Zengaz 1 Flame", price: "R$ 150,00", category: "macaricos", imageName: "140.jpg" },
+    { id: 140, title: "Maçarico Zengaz 1 Flame", price: "R$ 130,00", category: "macaricos", imageName: "140.jpg" },
 
     // CUIAS (141 a 149)
     { id: 141, title: "Cuia Gelo", price: "R$ 35,00", category: "cuias", imageName: "141.jpg" },
-    { id: 142, title: "Cuia Sadhu Silicone", price: "R$ 140,00", category: "cuias", imageName: "142.jpg" },
+    { id: 142, title: "Cuia Sadhu Silicone", price: "R$ 30,00", category: "cuias", imageName: "142.jpg" },
     { id: 143, title: "Cuia Cerâmica Grande", price: "R$ 150,00", category: "cuias", imageName: "143.jpg" },
     { id: 144, title: "Cuia Cerâmica Média", price: "R$ 110,00", category: "cuias", imageName: "144.jpg" },
     { id: 145, title: "Cuia Simples Grande", price: "R$ 15,00", category: "cuias", imageName: "145.jpg" },
@@ -593,11 +593,11 @@ const produtos = [
     // CASES (157 a 166)
     { id: 157, title: "Hello Kitty", price: "R$ 40,00", category: "cases", imageName: "157.jpg" },
     { id: 158, title: "Sadhu Impermeável Grande", price: "R$ 90,00", category: "cases", imageName: "158.jpg" },
-    { id: 159, title: "Puff Grande Black", price: "R$ 120,00", category: "cases", imageName: "159.jpg" },
-    { id: 160, title: "Puff Slim Bege", price: "R$ 90,00", category: "cases", imageName: "160.jpg" },
-    { id: 161, title: "Puff Slim Preta", price: "R$ 90,00", category: "cases", imageName: "161.jpg" },
-    { id: 162, title: "Puff Slim Roxa", price: "R$ 90,00", category: "cases", imageName: "162.jpg" },
-    { id: 163, title: "Puff Slim Verde", price: "R$ 90,00", category: "cases", imageName: "163.jpg" },
+    { id: 159, title: "Puff Grande Black", price: "R$ 130,00", category: "cases", imageName: "159.jpg" },
+    { id: 160, title: "Puff Slim Bege", price: "R$ 130,00", category: "cases", imageName: "160.jpg" },
+    { id: 161, title: "Puff Slim Preta", price: "R$ 130,00", category: "cases", imageName: "161.jpg" },
+    { id: 162, title: "Puff Slim Roxa", price: "R$ 100,00", category: "cases", imageName: "162.jpg" },
+    { id: 163, title: "Puff Slim Verde", price: "R$ 100,00", category: "cases", imageName: "163.jpg" },
     { id: 164, title: "Sadhu Pequena", price: "R$ 90,00", category: "cases", imageName: "164.jpg" },
     { id: 165, title: "Tonabe Grande", price: "R$ 45,00", category: "cases", imageName: "165.jpg" },
     { id: 166, title: "Tonabe Colors", price: "R$ 40,00", category: "cases", imageName: "166.jpg" },
@@ -996,5 +996,9 @@ function selecionarHorario(el, horario) {
     selectedTime = horario;
 
     console.log("Horário selecionado:", selectedTime);
+}
+
+function closeLogin() {
+    document.querySelector('.login-panel').style.display = 'none';
 }
 

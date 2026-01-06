@@ -38,6 +38,9 @@
 </div>
 
 <div class="login-panel">
+    <button class="close-login" onclick="closeLoginPanel()">✕</button>
+
+
     <h3 style="text-align:center;color:#e6b300;">Login</h3>
     <input id="loginUser" type="text" placeholder="Usuário">
     <input id="loginPass" type="password" placeholder="Senha">
@@ -45,13 +48,15 @@
     <button class="btn-login" onclick="login()">Entrar</button>
     
     <button class="btn-google" onclick="loginGoogle()">
-    <span>Entrar com 
-        <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
-    </span>
-</button>
+        <span>Entrar com 
+            <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span>
+            <span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+        </span>
+    </button>
 
     <a href="#" style="color:#e6b300;font-size:12px;">Recuperar senha</a>
 </div>
+
 
 <nav class="navbar">
     <a onclick="showSection('home-section')">Início</a>
