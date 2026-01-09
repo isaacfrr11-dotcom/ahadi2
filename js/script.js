@@ -203,7 +203,7 @@ const availableTimes = [
     { time: "18:00", type: 'tarde' },
     { time: "19:00", type: 'tarde' },
 ];
-
+//this is a quick test change
 function generateSchedule() {
     const listaManha = document.getElementById('lista-manha');
     const listaTarde = document.getElementById('lista-tarde');
