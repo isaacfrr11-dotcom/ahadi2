@@ -3,7 +3,9 @@ let selectedTime = null;
 let cartCountElement
 let selectedElement = null;
 let bookedTimes = [];
-let cart = JSON.parse(localStorage.getItem('cartItems')) || []; 
+let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+const BASE_URL = 'https://ahadi2-backend.onrender.com';
+
 
 /* ---------------------------------------------------- */
 /* ---------------- 1. NAVIGATION --------------------- */
@@ -114,7 +116,7 @@ function login() {
 
     const loginData = { usuarioOuEmail, senha };
 
-   fetch('http://ahadi-backend.onrender.com/api/login', {
+   fetch(`${BASE_URL}/api/login`, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -164,7 +166,7 @@ function createAccount() {
 
     const userData = { nome, email, usuario, senha };
 
-    fetch('ahadi-backend.onrender.com/api/criar-conta', {
+    fetch(`${BASE_URL}/api/criar-conta`, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
