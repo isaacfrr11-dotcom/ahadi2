@@ -4,8 +4,8 @@ let cartCountElement
 let selectedElement = null;
 let bookedTimes = [];
 let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-const BASE_URL = 'https://ahadi2-backend.onrender.com';
-
+//const BASE_URL = 'https://ahadi2-backend.onrender.com';
+const BASE_URL = 'http://localhost:3000';
 
 /* ---------------------------------------------------- */
 /* ---------------- 1. NAVIGATION --------------------- */
@@ -527,7 +527,7 @@ const produtos = [
     { id: 102, title: "Jack Paiol Menta", price: "R$ 20,00", category: "tabacos", imageName: "102.jpg" },
     { id: 103, title: "Jack Paiol Tradicional", price: "R$ 20,00", category: "tabacos", imageName: "103.jpg" },
     { id: 104, title: "Bolados Natural Virgínia", price: "R$ 2,00", category: "tabacos", imageName: "104.jpg" },
-    { id: 105, title: "Display The Tog Preto", price: "R$ 20,00", category: "tabacos", imageName: "105.jpg" },
+    { id: 105, title: "Display The Tog Preto", price: "R$ 24,00", category: "tabacos", imageName: "105.jpg" },
     { id: 106, title: "Hi Tobacco Amarelo", price: "R$ 40,00", category: "tabacos", imageName: "106.jpg" },
     { id: 107, title: "Sasso Tabaco", price: "R$ 30,00", category: "tabacos", imageName: "107.jpg" },
     { id: 108, title: "Sasso Virginia Dourado", price: "R$ 28,00", category: "tabacos", imageName: "108.jpg" },
@@ -595,11 +595,11 @@ const produtos = [
     // CASES (157 a 166)
     { id: 157, title: "Hello Kitty", price: "R$ 40,00", category: "cases", imageName: "157.jpg" },
     { id: 158, title: "Sadhu Impermeável Grande", price: "R$ 90,00", category: "cases", imageName: "158.jpg" },
-    { id: 159, title: "Puff Grande Black", price: "R$ 130,00", category: "cases", imageName: "159.jpg" },
-    { id: 160, title: "Puff Slim Bege", price: "R$ 130,00", category: "cases", imageName: "160.jpg" },
-    { id: 161, title: "Puff Slim Preta", price: "R$ 130,00", category: "cases", imageName: "161.jpg" },
-    { id: 162, title: "Puff Slim Roxa", price: "R$ 100,00", category: "cases", imageName: "162.jpg" },
-    { id: 163, title: "Puff Slim Verde", price: "R$ 100,00", category: "cases", imageName: "163.jpg" },
+    { id: 159, title: "Puff Grande Black", price: "R$ 120,00", category: "cases", imageName: "159.jpg" },
+    { id: 160, title: "Puff Slim Bege", price: "R$ 90,00", category: "cases", imageName: "160.jpg" },
+    { id: 161, title: "Puff Slim Preta", price: "R$ 90,00", category: "cases", imageName: "161.jpg" },
+    { id: 162, title: "Puff Slim Roxa", price: "R$ 90,00", category: "cases", imageName: "162.jpg" },
+    { id: 163, title: "Puff Slim Verde", price: "R$ 90,00", category: "cases", imageName: "163.jpg" },
     { id: 164, title: "Sadhu Pequena", price: "R$ 90,00", category: "cases", imageName: "164.jpg" },
     { id: 165, title: "Tonabe Grande", price: "R$ 45,00", category: "cases", imageName: "165.jpg" },
     { id: 166, title: "Tonabe Colors", price: "R$ 40,00", category: "cases", imageName: "166.jpg" },
@@ -640,7 +640,7 @@ const produtos = [
     { id: 197, title: "Cortador de Charuto Prata", price: "R$ 50,00", category: "acessorios", imageName: "197.jpg" },
     { id: 198, title: "Cortador de Charuto Preto", price: "R$ 45,00", category: "acessorios", imageName: "198.jpg" },
     { id: 199, title: "Clip Cordão Puff Life", price: "R$ 45,00", category: "acessorios", imageName: "199.jpg" },
-    { id: 200, title: "Tesoura de Metal Clássica", price: "R$ 50,00", category: "acessorios", imageName: "200.jpg" },
+    { id: 200, title: "Tesoura de Metal Clássica", price: "R$ 12,00", category: "acessorios", imageName: "200.jpg" },
     { id: 201, title: "Tesoura de Metal Simples", price: "R$ 12,00", category: "acessorios", imageName: "201.jpg" },
     { id: 202, title: "Tesoura Metal Pequena Dobrável", price: "R$ 35,00", category: "acessorios", imageName: "202.jpg" },
     { id: 203, title: "Tesoura Metal Grande Dobrável", price: "R$ 40,00", category: "acessorios", imageName: "203.jpg" },
